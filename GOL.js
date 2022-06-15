@@ -1,45 +1,26 @@
 const unitLength = 25;
 const boxColor = 200;
 const strokeColor = 250;
-// let over = document.getElementById('over').value;
-// let lone = document.getElementById('lone').value;
+
 let fr;
-let slideVal = document.getElementById('mySpeed');
 let columns; /* To be determined by window width */
 let rows;    /* To be determined by window height */
 let currentBoard;
 let nextBoard;
 let oldBoard;
-let speed = document.querySelector('#speed-value')
-let song = document.querySelector('#myAudio')
-let gliderStatus = false;
-let customPattern = document.querySelector('#text-for-pattern')
+let gameStatus = false;
 let patternStr;
 let patternArr;
-let gameStatus = false;
+
+//event listener for value extraction
+let slideVal = document.getElementById('mySpeed');
+let speed = document.querySelector('#speed-value')
+let song = document.querySelector('#myAudio')
+let customPattern = document.querySelector('#text-for-pattern')
+
+//coordinate for keyboard control
 let corX = 0;
 let corY = 0;
-
-function playAudio() {
-    song.volume = 0.1;
-    if (parseInt(slideVal.value) < 30) {
-        song.playbackRate = 1;
-    }
-    else if (parseInt(slideVal.value) < 80) {
-        song.playbackRate = 1.2;
-    }
-    else {
-        song.playbackRate = 1.4;
-    }
-    song.currentTime = 43;
-    song.play();
-}
-
-function pauseAudio() {
-    song.volume = 0.05;
-    song.pause();
-    song.currentTime = 43;
-}
 
 //listeners
 document.querySelector('#ran-game')
@@ -87,6 +68,7 @@ document.getElementById('start-game').addEventListener('click', function () {
     draw();
     loop();
 });
+// All keyboard control are in the below listener
 document.addEventListener('keydown', function (event) {
     if (event.key == "Left" || event.key == "Right" || event.key == "ArrowLeft" || event.key == "ArrowRight") {
         speed.innerHTML = slideVal.value;
@@ -224,6 +206,10 @@ document.querySelector('#clear-pattern').addEventListener('click', function () {
 })
 customPattern.addEventListener('input', function () {
 });
+
+
+//All other functions
+
 function setup() {
     /* Set the canvas to be under the element #canvas*/
     const canvas = createCanvas(windowWidth - 195, windowHeight - 300);
@@ -254,6 +240,7 @@ function init() {
     }
 }
 
+//Random board status
 function randomised() {
     for (let i = 0; i < columns; i++) {
         for (let j = 0; j < rows; j++) {
@@ -299,7 +286,7 @@ function draw() {
     makeUI();
     song.playbackRate = 1 + (parseInt(slideVal.value) / 100);
 }
-
+// resize the board when window is resized and remember the current state
 function windowResized() {
     //define oldboard and keep the old feature in the board
     oldBoard = []
@@ -386,8 +373,29 @@ function generate() {
     [currentBoard, nextBoard] = [nextBoard, currentBoard];
 }
 
+//The song playing function for event listener
+function playAudio() {
+    song.volume = 0.1;
+    if (parseInt(slideVal.value) < 30) {
+        song.playbackRate = 1;
+    }
+    else if (parseInt(slideVal.value) < 80) {
+        song.playbackRate = 1.2;
+    }
+    else {
+        song.playbackRate = 1.4;
+    }
+    song.currentTime = 43;
+    song.play();
+}
+function pauseAudio() {
+    song.volume = 0.05;
+    song.pause();
+    song.currentTime = 43;
+}
+
 /**
- * When mouse is dragged
+ * When mouse is dragged, draw on board
  */
 function mouseDragged() {
     speed.innerHTML = slideVal.value;
@@ -408,6 +416,8 @@ function mouseDragged() {
     stroke(strokeColor);
     rect(x * unitLength, y * unitLength, unitLength, unitLength);
 }
+
+//to update the speed when mouse released from the slide
 function mouseReleased() {
     speed.innerHTML = slideVal.value;
     if (!gameStatus) {
@@ -418,6 +428,7 @@ function mouseReleased() {
     }
 
 }
+
 //function that allows customisation of the pattern 
 //make or import pattern 
 function customise(string) {
