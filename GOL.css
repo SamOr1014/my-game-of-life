@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap");
+@import url('http://fonts.cdnfonts.com/css/operosta');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.title {
+    text-align: center;
+}
+
+.game-btn button {
+    margin: 2px;
+}
+
+body {
+    background: radial-gradient(rgba(118, 0, 191, 0.5) 0%, transparent 70%), linear-gradient(#0b161e 40%, #202076 70%);
+}
+
+h1 {
+    font-family: "Mr Dafoe";
+    font-size: 10vh;
+    text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1;
+    color: white;
+    letter-spacing: 0.03em;
+    background-image: linear-gradient(#032d50 25%, #00a1ef 35%, white 50%, #20125f 50%, #8313e7 55%, #ff61af 75%);
+    text-align: center;
+    height: 15vh;
+
+}
+h1 a {
+    text-decoration: none;
+    color: white;
+}
+@media screen and (max-width: 450px){
+    h1 {
+        font-size: 8vh;
+        height: 11vh;
+    
+    }
+}
+
+h1 a:hover {
+    color: white;
+    text-shadow: 0 0 0.05em #fff, 0 0 0.2em #62d4f4, 0 0 0.3em #f081e3;
+}
+
+.game-bar {
+    margin: 1vh;
+    font-family: 'Exo';
+    color: white;
+    font-size: 1.5vw;
+}
+
+#text-for-pattern {
+    margin-bottom: 0.3vw
+}
+
+.game-bar .my-but {
+    background-image: linear-gradient(#032d50 15%, #00a1ef 35%, white 80%, #20125f 40%, #8313e7 55%, #ff61af 40%);
+    color: #3a0433;
+    width: 10.5vw;
+    height: 5vw;
+    font-size: 1.7vw;
+    margin: 0.2vw;
+    text-align: center;
+}
+.small-but {
+    background-image: linear-gradient(#032d50 15%, #00a1ef 35%, white 80%, #20125f 40%, #8313e7 55%, #ff61af 40%);
+    color: #3a0433;
+    width: 5vw;
+    font-size: 0.8vw;
+    margin: 0.2vw;
+    text-align: center;
+}
+#pattern-template, #instruction {
+    width: 20vw;
+}
+div.game-instruction .modal-content{
+    background: radial-gradient(rgba(118, 0, 191, 0.5) 0%, transparent 70%), linear-gradient(#0b161e 40%, #202076 70%);
+}
+#offcanvasExampleLabel {
+    font-size: 3vw;
+}
+.modal-header, .modal-content {
+    border: 0px;
+    font-family: 'Exo';
+
+}
+.modal-body, .modal-header{
+    color: rgb(255, 255, 255);
+}
+.game-bar .rule {
+    margin: auto;
+}
+
+#canvas {
+    border: 1vh solid #fff;
+}
+
+.hidden-page {
+    font-family: 'VT323', monospace;
+    color: #0b161e;
+    background: #03001e;
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to bottom, #fdeff9, #ec38bc, #7303c0, #03001e); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #fdeff9, #ec38bc, #7303c0, #0f0568);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+h2.accordion-header button{
+    font-size: 1.5vw;
+    font-weight: bold;
+}
